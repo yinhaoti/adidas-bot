@@ -1,0 +1,15 @@
+{
+    "INFO":{
+        "First_Name":"Wynn",
+        "Last_Name":"Yin",
+        "Month":"12",
+        "Day":"22",
+        "Year":"1994",
+        "Passwords":"asdfasdf",
+        "Gender": "2"
+    },
+    "SYS":{
+        "Email_prefix": "letsfuckupsidedown",
+        "NumberOfAccount": 10
+    }
+}

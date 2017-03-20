@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+	<head>
+	<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员注册</title>
+<meta name="description" content="欢迎来到adidas 阿迪达斯中国官方旗舰店！在线销售足球、跑步、篮球、训练、网球、户外、高尔夫、adidas by Stella McCartney系列运动装备，及adidas Originals、NEO、SLVR经典休闲时尚产品。" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="adidas,阿迪达斯,阿迪达斯中国, adidas 中国,阿迪达斯官方旗舰店,adidas官方旗舰店,adidas三叶草,adidas Originals,三叶草,足球,篮球,网球,adidas鞋,阿迪达斯鞋,adidas服饰,阿迪达斯服饰,阿迪达斯足球,跑步,训练,SLVR,户外,NEO,滑板,Porsche Design,高尔夫,STELLA MCCARTNEY" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<link rel="icon" href="https://www.adidas.com.cn/skin/frontend/arvato/default/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://www.adidas.com.cn/skin/frontend/arvato/default/favicon.ico" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = 'https://www.adidas.com.cn/js/blank.html';
+    var BLANK_IMG = 'https://www.adidas.com.cn/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="https://www.adidas.com.cn/skin/frontend/arvato/default/style/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.adidas.com.cn/skin/frontend/arvato/default/font/fonts.css" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.adidas.com.cn/skin/frontend/arvato/default/style/login_register.css" media="all" />
+<script type="text/javascript" src="https://www.adidas.com.cn/js/mage/captcha.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/frame/jquery-ui-1.10.4.custom.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/frame/frame.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/frame/arvato_touch.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/frame/carousel_images.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/frame/touchslider.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/common_mini_shoppingcar.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/common_product_struct.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/common_search.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/frame/jquery.flexslider.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/frame/page_image_asyn.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/common.js"></script>
+<script type="text/javascript" src="https://www.adidas.com.cn/skin/frontend/arvato/default/js/common/register.js"></script>
+<script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = ["CN"];
+//]]>
+</script>
+<script type='text/javascript'>
+
+$(function(){
+	    $.getJSON("https://www.adidas.com.cn/api/ajaxheader.php", function(data) {
+	        if(data.flag !=0){
+	            $('.loginGroup .login_redesign').text(data.name);
+	        }else{
+	        	$('.loginGroup .login_redesign').text('登录');
+	        }
+	        if(data.qty == 0){
+                $(".manicarBox").hide();
+                $(".emptyCart").show();
+            }else{
+                $(".emptyCart").hide();
+				$(".minicart .minicartNum .miniNum").html(data.qty);
+				$(".minicart").addClass("bgMiniCart");
+            }
+	    });
+})
+
+function getPopUrl(key){
+	if(key == 'addCart'){
+		return 'https://www.adidas.com.cn/specific/Ajaxshowuserlogin/successAddCart/' ;
+	}
+	if(key == 'addCartFail'){
+		return 'https://www.adidas.com.cn/specific/Ajaxshowuserlogin/mixedAddCart/' ;
+	}
+	if(key == 'miniShoppingcar'){
+		return 'https://www.adidas.com.cn/skin/frontend/arvato/default/' + 'component/popup_minishoppingcar.php' ;
+	}
+	if(key=="headAccount"){
+            
+	} 
+        if(key=="registerSuccess"){
+            return 'https://www.adidas.com.cn/skin/frontend/arvato/default/' + 'component/popup_register_success.php' ;
+        }
+    if(key=="subscribeSuccess"){
+        return 'https://www.adidas.com.cn/skin/frontend/arvato/default/' + 'component/popup_subscribe_success.php' ;
+    }
+     if(key=="r3scEditKey"){
+        return 'https://www.adidas.com.cn/specific/Ajaxshowuserlogin/r3shoppingCart/';
+       // return '/skin/frontend/arvato/default/release_three/component/popup_r3shoppingCart.html' ;
+        
+    }
+}
+function getPopUrlUser(callback){
+   return false;
+}
+function getAjaxUrl(key){
+	if(key =='miniShoppingcar'){
+		return  {
+			url:"https://www.adidas.com.cn/specific/Ajaxshoppingcart/arvatoAjaxCart/",type:"GET",data:{}
+		};
+	}
+	if(key =='search'){
+		var q =  jQuery('#arvato_q').val() ; 
+		return {
+			url:"https://www.adidas.com.cn/catalogsearch/ajax/suggest/",type:"GET",data:{"q":q}
+		};
+	}
+}
+
+
+</script>
+<!--  
+<script type="text/javascript" src="//tags.tiqcdn.com/utag/adidas/adidaschina/prod/utag.sync.js"></script>
+ -->
+    	</head>
+    <body>
+    		
+    	    <div class="headerBox">
+	<!--start black background header-->
+	<div class="headTop">
+		<div class="newTopDesign">
+			<div class="header_wrapper cf">
+				<div class="selfservice_bg">
+					<ul class="selfservice_bgNav cf" style="width:660px">
+						<li class="scrollText" style="width:360px"><p>部分城市满额即享免费限时达服务，<a style="font-size: 14px; color: white; margin-left: -11px; text-decoration: underline;" href="http://www.adidas.com.cn/samedaydelivery">点击查看详情。</a></p></li>
+						<li  class="loginGroup">
+						<a href="https://www.adidas.com.cn/customer/account/" title="" class="login_redesign show">
+						登录
+						</a></li>
+						<li><a  href="https://www.adidas.com.cn/sales/guest/form/" title="">订单跟踪</a></li>
+						<li>
+							<script type="text/javascript">  
+                            function adidasopenwindow(url,name,iWidth,iHeight)  
+                            {   
+                            var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;  
+                            var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;  
+                            window.open(url,name,'height='+iHeight+',,innerHeight='+iHeight+',width='+iWidth+',innerWidth='+iWidth+',top=0,left='+iLeft+',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');  
+                            }  
+                            </script> 
+							<a style="padding-right:10px;" href="javascript:void(0);" onclick="adidasopenwindow('http://adidas.800teleservices.com.cn/AdidasChat/WebPages/CM/ChatCustomer.html', 'newwindow', '900','600')" >在线客服</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+        <!--start wrapper min-width:950px-->
+        <div class="header_wrapper cf">
+            <!--start logo column-->
+            <div class="column"><a href="http://www.adidas.com.cn/" title="adidas 阿迪达斯官网 首页" class="adidasLogo"><img src="https://www.adidas.com.cn/skin/frontend/arvato/default/imgs/logo.png" alt="adidas阿迪达斯官网 首页" /></a></div>
+            <!--end logo column-->
+            <style>
+.headCatLink {
+	font-size: 16px;
+	font-weight: bold;
+}
+.hfSubNavTit a {
+	font-size: 20px;
+}
+.sport a {
+	position:relative;
+	padding-left:30px;
+	border-bottom:1px solid #7f7f7f;
+	height:26px;
+	display:block;
+}
+.sport a::before {
+background:rgba(0, 0, 0, 0) url("http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/adidas.png") no-repeat scroll center center;
+content:"";
+position:absolute;
+width:20px;
+height:20px;
+left:0;
+top:0;
+}
+.terrexslogonav {
+    background: rgba(0, 0, 0, 0) url("http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/terrex-logos.gif") no-repeat scroll 0 0;
+    display: inline-block;
+     text-indent: 80px;
+}
+
+</style>
+
+<!--start men,women,kids column-->
+<div  class="column headMidNav" >  
+  <!--start navigation gender men-->
+  <div  class="headeNavOut navMen"> 
+    <!--start navigation button-->
+    <div  class="headNavBtn"><a class="headCatLink" href="http://www.adidas.com.cn/men" target="_blank">男子</a></div>
+    <!--end navigation button--> <!--start flyoutContent-->
+    <div  class="headeNavCont"> 
+      <!--start flyoutContWrapper min-width:950px-->
+      <div  class="wrapper ptb10"> 
+        <!--start mainline-->
+        <div  class="mainLine cf"> 
+          <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="javascript:;">最新活动</a></h2>
+            <div  class="hfNavDetail"> <a href="http://www.adidas.com.cn/productlist?cat=653&amp;sport_gender=39" target="_blank">新品上市</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+             
+ <!--      <a href="http://www.adidas.com.cn/productlist/?cat=623&sport_gender=39" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/PureBoost-Feb-153x82.jpg" alt="" /> </a>           <a href="http://www.adidas.com.cn/productlist/?cat=659" target="_blank">跑步|ULTRA BOOST</a>   
+              
+              
+              
+               <a href="http://www.adidas.com.cn/productlist?cat=608" target="_blank">足球|玩爆一切</a>          
+              <a href="http://www.adidas.com.cn/productlist?cat=612&sport_gender=39" target="_blank">Originals|SuperStar</a> -->
+              <a href="http://www.adidas.com.cn/productlist?adidascollection=1152&cat=2" target="_blank">Originals|White Mountaineering</a> 
+              <a href="http://www.adidas.com.cn/productlist/?cat=659&sport_gender=39"  target="_blank">跑步|ULTRA BOOST</a>
+              <a href="http://www.adidas.com.cn/productlist/?cat=622" target="_blank">跑步|COLORBOOST</a> 
+              <a href="http://www.adidas.com.cn/productlist/?cat=657&sport_gender=39" target="_blank">adidas neo|生来好动</a>
+              
+              
+              
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=39" target="_blank">miadidas 个性化定制</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a style="color: #ce0000;" href="http://www.adidas.com.cn/productlist?cat=6&amp;sport_gender=39" target="_blank">折扣专区</a> 
+              <!--<a href="http://www.adidas.com.cn/campaign_sport17" target="_blank">我是亿万里挑一 由我创造 </a>-->
+              
+              
+              <!--<a href="http://www.adidas.com.cn/productlist?cat=6&amp;sport_gender=39" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/MSS_140x70.jpg" alt="" /> </a>--></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=215" target="_blank">鞋类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;brand_series=115&amp;product_style=215" target="_blank">Originals</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=215&amp;brand_series=116" target="_blank">adidas neo</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=955&product_style=215" target="_blank">足球</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=215&amp;adidascategory=952" target="_blank">篮球</a> <a href="http://www.adidas.com.cn/productlist/?product_style=215&amp;sport_gender=39&amp;adidascategory=953" target="_blank">训练</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=943&product_style=215&sport_gender=39" target="_blank">跑步</a> <a href="http://www.adidas.com.cn/productlist/?product_style=215&amp;sport_gender=39&amp;adidascategory=957" target="_blank">户外</a> <a href="http://www.adidas.com.cn/productlist/?product_style=215&amp;sport_gender=39&amp;adidascategory=954" target="_blank">网球</a><a href="http://www.adidas.com.cn/productlist/?cat=482&sport_gender=39" target="_blank">miadidas 个性化定制</a></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=214" target="_blank">服饰类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=214&amp;producttypecn1=1015" target="_blank">紧身裤</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=214&amp;producttypecn1=1011" target="_blank">短袖上衣</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;producttypecn1=1009" target="_blank">长袖上衣</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=214&amp;producttypecn1=1007" target="_blank">茄克/外套</a><a href="http://www.adidas.com.cn/productlist/?cat=20" target="_blank">下装</a><a href="http://www.adidas.com.cn/productlist/?producttypecn1=1025&amp;sport_gender=39" target="_blank">棉服/羽绒服</a></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=216" target="_blank">附配件类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=216&amp;producttypecn1=1014" target="_blank">袜子</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=216&amp;producttypecn1=1012" target="_blank">帽子/手套/围巾</a><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=216&amp;producttypecn1=1013" target="_blank">背包/拎包/肩包/电脑包</a> <a href="http://www.adidas.com.cn/productlist/?cat=186&amp;sport_gender=39" target="_blank">手表</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=216&amp;producttypecn1=1010" target="_blank">球类</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;producttypecn1=1008" target="_blank">其他配附件</a></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5 last">
+            <h2 class="hfSubNavTit"><a href="javascript:;">运动分类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?cat=526" target="_blank">adidas athletics</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;adidascategory=955" target="_blank">足球</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;adidascategory=952" target="_blank">篮球</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;adidascategory=953" target="_blank">训练</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;adidascategory=943" target="_blank">跑步</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;adidascategory=957" target="_blank">户外</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;adidascategory=954" target="_blank">网球</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=959&amp;sport_gender=39">游泳</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;adidascategory=956" target="_blank">高尔夫</a></div>
+          </div>
+
+          <!--end col5--></div>
+        <!--end mainline--> <!--stat bottomline-->
+        <div  class="hfBottom cf"><!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist?sport_gender=39" target="_blank"><strong>全部男子产品</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=215" target="_blank"><strong>全部男子鞋</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=214" target="_blank"><strong>全部男子服饰</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;product_style=216" target="_blank"><strong>全部男子配件</strong></a></div>
+          <div  class="col5 last"><a href="http://www.adidas.com.cn/productlist/?sport_gender=39&amp;brand_series=60" target="_blank"><strong>全部男子运动</strong></a></div>
+          <!--end col5--></div>
+        <!--end bottomLine--></div>
+      <!--end flyoutContWrapper min-width:950px--></div>
+    <!--end flyoutContent--></div>
+  <!--end navigation gender men--> <!--start navigation gender women-->
+  <div  class="headeNavOut navWomen"><!--start navigation button-->
+    <div  class="headNavBtn"><a class="headCatLink" href="http://www.adidas.com.cn/women" target="_blank">女子</a></div>
+    <!--end navigation button--> <!--start flyoutContent-->
+    <div  class="headeNavCont"><!--start flyoutContWrapper min-width:950px-->
+      <div  class="wrapper ptb10"><!--start mainline-->
+        <div  class="mainLine cf"><!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="javascript:;">最新活动</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist?cat=653&amp;sport_gender=40" target="_blank">新品上市</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+            <!--  <a href="http://www.adidas.com.cn/productlist/?cat=598&sport_gender=40" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/PureBoost-Feb-153x82.jpg" alt="" /> </a>-->
+            
+              
+              <a href="http://www.adidas.com.cn/productlist?adidascollection=1152&cat=2" target="_blank">Originals|White Mountaineering</a> 
+              
+            <a href="http://www.adidas.com.cn/productlist/?cat=663&sport_gender=40"  target="_blank">Originals|Women</a> 
+            <a href="http://www.adidas.com.cn/productlist/?cat=630&sport_gender=40"  target="_blank">训练|由我创造</a> 
+            <a href="http://www.adidas.com.cn/productlist/?cat=659&sport_gender=40"  target="_blank">跑步|ULTRA BOOST</a> <a href="http://www.adidas.com.cn/productlist/?cat=622" target="_blank">跑步|COLORBOOST</a> 
+            <a href="http://www.adidas.com.cn/productlist/?cat=657&sport_gender=40"  target="_blank">adidas neo|生来好动</a> 
+              
+              
+              
+              
+              
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=40" target="_blank">miadidas 个性化定制</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a style="color: #ce0000;" href="http://www.adidas.com.cn/productlist?cat=6&amp;sport_gender=40" target="_blank">折扣专区</a>
+              <!--<a href="http://www.adidas.com.cn/campaign_sport17" target="_blank">我是亿万里挑一 由我创造 </a>-->
+              
+              <!-- <a href="http://www.adidas.com.cn/productlist?cat=6&amp;sport_gender=40" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/MSS_140x70.jpg" alt="" /> </a>--></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=215" target="_blank">鞋类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=215&amp;brand_series=115" target="_blank">Originals</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=215&amp;brand_series=116" target="_blank">adidas neo</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=215&amp;adidascategory=953" target="_blank">训练</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=943&product_style=215&sport_gender=40" target="_blank">跑步</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=215&amp;adidascategory=957" target="_blank">户外</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=215&amp;adidascategory=954" target="_blank">网球</a><a href="http://www.adidas.com.cn/productlist/?cat=482&sport_gender=40" target="_blank">miadidas个性化定制</a> <!--<a title="游泳" href="http://www.adidas.com.cn/productlist/?brand_series=60&amp;sport_gender=40&amp;cat=73&amp;product_style=215">游泳</a>--></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=214" target="_blank">服饰类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=214&amp;producttypecn1=1015" target="_blank">紧身裤</a> <a href="http://www.adidas.com.cn/productlist/?cat=38" target="_blank">运动胸衣</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=214&amp;producttypecn1=1011" target="_blank">短袖上衣</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=214&amp;producttypecn1=1009" target="_blank">长袖上衣</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=214&amp;producttypecn1=1007" target="_blank">茄克/外套</a><a href="http://www.adidas.com.cn/productlist/?&amp;sport_gender=40&amp;cat=33" target="_blank">短裙/连衣裙</a> <a href="http://www.adidas.com.cn/productlist/?&amp;sport_gender=40&amp;cat=35" target="_blank">下装</a><a href="http://www.adidas.com.cn/productlist/?&amp;sport_gender=40&amp;cat=37" target="_blank">泳衣/泳裤</a><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;producttypecn1=1025" target="_blank">棉服/羽绒服</a></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=216" target="_blank">附配件类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=216&amp;producttypecn1=1014" target="_blank">袜子</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=216&amp;producttypecn1=1012" target="_blank">帽子/手套/围巾</a><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=216&amp;producttypecn1=1013" target="_blank">背包/拎包/肩包/电脑包</a> <a href="http://www.adidas.com.cn/productlist/?&amp;sport_gender=40&amp;cat=186" target="_blank">手表</a> <!--<a title="球类" href="http://www.adidas.com.cn/productlist/?&amp;sport_gender=805&amp;cat=49">球类</a>--><a href="http://www.adidas.com.cn/productlist/?product_style=216&amp;sport_gender=40&amp;producttypecn1=1008" target="_blank">其他配附件</a></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5 last">
+            <h2 class="hfSubNavTit"><a href="javascript:;">运动分类</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?cat=527" target="_blank">adidas athletics</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;adidascategory=955" target="_blank">足球</a> <!--<a title="篮球" href="http://www.adidas.com.cn/productlist/?brand_series=60&amp;sport_gender=40&amp;cat=67">篮球</a> --><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;adidascategory=953" target="_blank">训练</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;adidascategory=943" target="_blank">跑步</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;adidascategory=957" target="_blank">户外</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;adidascategory=954" target="_blank">网球</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;adidascategory=959" target="_blank">游泳</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;adidascategory=956" target="_blank">高尔夫</a></div>
+          </div>
+          <!--end col5--></div>
+        <!--end mainline--> <!--stat bottomline-->
+        <div  class="hfBottom cf"><!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist?sport_gender=40" target="_blank"><strong>全部女子产品</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=215" target="_blank"><strong>全部女子鞋</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=214" target="_blank"><strong>全部女子服饰</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5 "><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;product_style=216" target="_blank"><strong>全部女子配件</strong></a></div>
+          <div  class="col5 last"><a href="http://www.adidas.com.cn/productlist/?sport_gender=40&amp;brand_series=60" target="_blank"><strong>全部女子运动</strong></a></div>
+          <!--end col5--></div>
+        <!--end bottomLine--></div>
+      <!--end flyoutContWrapper min-width:950px--></div>
+    <!--end flyoutContent--></div>
+  <!--end navigation gender women--> <!--start navigation gender kids-->
+  <div  class="headeNavOut navKids"><!--start navigation button-->
+    <div  class="headNavBtn"><a class="headCatLink" href="http://www.adidas.com.cn/kids" target="_blank">童装</a></div>
+    <!--end navigation button--> <!--start flyoutContent-->
+    <div  class="headeNavCont"><!--start flyoutContWrapper min-width:950px-->
+      <div  class="wrapper ptb10"><!--start mainline-->
+        <div  class="mainLine cf"><!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="javascript:;">最新活动</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?cat=653&amp;sport_gender=543" target="_blank">新品上市</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a href="http://www.adidas.com.cn/productlist/?brand_series=60&amp;sport_gender=543" target="_blank">运动表现</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a style="color: #ce0000;" href="http://www.adidas.com.cn/productlist?cat=12" target="_blank">折扣专区</a><!-- <a href="http://www.adidas.com.cn/productlist?cat=12" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/MSS_140x70.jpg" alt="" /> </a>--></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist?agegroup=950" target="_blank">大童（8-12岁）</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=214&amp;agegroup=950" target="_blank">男大童：服装</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=214&amp;agegroup=950" target="_blank">女大童：服装</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=215&amp;agegroup=950" target="_blank">男大童：鞋类</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=215&amp;agegroup=950" target="_blank">女大童：鞋类</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=216&amp;agegroup=950" target="_blank">男大童：箱包/附配件</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=216&amp;agegroup=950" target="_blank">女大童：箱包/附配件</a></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?&amp;agegroup=942" target="_blank">小童（4-8岁）</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=214&amp;agegroup=942" target="_blank">男小童：服装</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=214&amp;agegroup=942" target="_blank">女小童：服装</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=215&amp;agegroup=942" target="_blank">男小童：鞋类</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=215&amp;agegroup=942" target="_blank">女小童：鞋类</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=216&amp;agegroup=942" target="_blank">男小童：箱包/附配件</a><a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=216&amp;agegroup=942" target="_blank">女小童：箱包/附配件</a></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?&amp;agegroup=949" target="_blank">婴幼儿（0-4岁）</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=214&amp;agegroup=949" target="_blank">男婴童：服装</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=214&amp;agegroup=949" target="_blank">女婴童：服装</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=215&amp;agegroup=949" target="_blank">男婴童：鞋类</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=215&amp;agegroup=949" target="_blank">女婴童：鞋类</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=543&amp;product_style=216&amp;agegroup=949" target="_blank">男婴童：箱包/附配件</a> <a href="http://www.adidas.com.cn/productlist/?sport_gender=849&amp;product_style=216&amp;agegroup=949" target="_blank">女婴童：箱包/附配件</a></div>
+          </div>
+          <!--end col5--></div>
+        <!--end mainline-->
+        <div  class="hfBottom cf"><!--start col5-->
+          <div  class="col5">&nbsp;</div>
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist?agegroup=950" target="_blank"><strong>全部大童（8-14岁）产品</strong></a></div>
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?&amp;agegroup=942" target="_blank"><strong>全部小童（4-8岁）产品</strong></a></div>
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?&amp;agegroup=949" target="_blank"><strong>全部婴幼儿（0-4岁）产品</strong></a></div>
+          <!--end col5--></div>
+        <!--stat bottomline--> <!--end bottomLine--></div>
+      <!--end flyoutContWrapper min-width:950px--></div>
+    <!--end flyoutContent--></div>
+  <!--end navigation gender kids--> <!--start delimiter--> <span class="headDivid">|</span> <!--end delimiter--> <!--start navigation sports-->
+  <div  class="headeNavOut navSports"><!--start navigation button-->
+    <div  class="headNavBtn"><a class="headCatLink" href="javascript:;">运动</a></div>
+    <!--end navigation button--> <!--start flyoutContent-->
+    <div  class="headeNavCont"><!--start flyoutContWrapper min-width:950px-->
+      <div  class="wrapper ptb10"><!--start mainline-->
+        <div  class="mainLine cf"><!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit sport"><a href="http://www.adidas.com.cn/football/" target="_blank">足球</a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/football/" target="_blank"><!--http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/172-80.jpg--><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/blueblast.jpg" alt="" /></a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=955&amp;product_style=215" target="_blank">足球鞋</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=955&amp;product_style=214" target="_blank">足球服饰</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=955&amp;product_style=216" target="_blank">附配件</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <!--<a href="http://www.adidas.com.cn/productlist/?cat=530" target="_blank">Stellar Pack</a>--> <a href="http://www.adidas.com.cn/productlist/?cat=370" target="_blank">曼联</a> <a href="http://www.adidas.com.cn/productlist/?cat=377" target="_blank">AC米兰</a> <a href="http://www.adidas.com.cn/productlist/?cat=378" target="_blank">拜仁</a> <a href="http://www.adidas.com.cn/productlist/?cat=359" target="_blank">切尔西</a> <a href="http://www.adidas.com.cn/productlist/?cat=361" target="_blank">尤文图斯</a> <a href="http://www.adidas.com.cn/productlist/?cat=392" target="_blank">皇马</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a href='http://www.adidas.com.cn/productlist?cat=608' target='_blank'>玩爆一切</a>
+              </div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit sport"><a href="http://www.adidas.com.cn/running" target="_blank">跑步</a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/running" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/172-80-3-7-running.jpg" alt="跑步" /></a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=943&product_style=215" target="_blank">跑步鞋</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=943&amp;product_style=214&amp;brand_series=60" target="_blank">跑步服饰</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=943&amp;brand_series=60&amp;product_style=216" target="_blank">附配件</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              
+              
+<a href="http://www.adidas.com.cn/productlist/?cat=659"  target="_blank">ULTRA BOOST</a>
+<a href="http://www.adidas.com.cn/productlist/?cat=622" target="_blank">COLORBOOST</a> 
+              
+              
+              
+              <!--<a href="http://www.adidas.com.cn/productlist/?cat=623&sport_gender=39" target="_blank">PUREBOOST</a> --> 
+              <!--<a href='http://www.adidas.com.cn/productlist/?cat=504' target='_blank'>北京.跑向能量之巅</a>--></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit sport"><a href="http://www.adidas.com.cn/basketball" target="_blank">篮球</a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/basketball" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/172-80-3-7-basketball.jpg" alt="篮球" /></a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=952&amp;product_style=215" target="_blank">篮球鞋</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=952&amp;product_style=214" target="_blank">篮球服饰</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=952&amp;product_style=216" target="_blank">附配件</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a href="http://www.adidas.com.cn/productlist/?cat=654"  target="_blank">CRAZY EXPLOSIVE</a> 
+              
+<!--              <a href="http://www.adidas.com.cn/productlist?cat=602" target="_blank">Dame3
+</a>
+               <a href='http://www.adidas.com.cn/productlist/?cat=564' target='_blank'>Harden Vol.1</a> -->
+              <!--<a href="http://www.adidas.com.cn/catalogsearch/result/?q=crazy+explosive" target="_blank">Crazy Explosive</a>--></div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit sport"><a href="http://www.adidas.com.cn/training" target="_blank">训练</a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/training" target="_blank"> <img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/172-80-3-7-tranning.jpg" alt="" /></a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=953&amp;product_style=215" target="_blank">训练鞋</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=953&amp;product_style=214" target="_blank">训练服饰</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=953&amp;product_style=216" target="_blank">附配件</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              
+              
+              
+              <a href="http://www.adidas.com.cn/productlist/?cat=630"  target="_blank">由我创造</a> 
+              
+              
+      <!--        <a href="http://www.adidas.com.cn/climazone" target="_blank">Climazone</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=953&amp;adidascollection=1055" target="_blank">Techfit</a><a href="http://www.adidas.com.cn/productlist/?adidascategory=953" target="_blank">Never done</a>-->
+              
+              
+              
+              </div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5 widthLine last">
+            <h2 class="hfSubNavTit"><a href="javascript:;">其他运动</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/athletics" target="_blank">adidas athletics</a> <a href="http://www.adidas.com.cn/tennis" target="_blank">网球</a> <a href="http://www.adidas.com.cn/terrex" target="_blank" class="terrexslogonav">户外</a> <!--<a title="游泳" href="http://www.adidas.com.cn/productlist/?brand_series=60&amp;sport_type=200">游泳</a>--> <a href="http://www.adidas.com.cn/productlist/?adidascategory=956" target="_blank">高尔夫</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=959">游泳</a>
+            
+            
+             <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+            
+            
+             <!-- <a href="http://www.adidas.com.cn/campaign_sport17" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/yiwanli1.jpg" alt="" /></a>-->
+            
+            
+            
+            
+            </div>
+          </div>
+          <!--end col5--></div>
+        <!--end mainline--> <!--stat bottomline-->
+        <div  class="hfBottom cf"><!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist?adidascategory=955" target="_blank"><strong>全部足球产品</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?&amp;adidascategory=943" target="_blank"><strong>全部跑步产品</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?&amp;adidascategory=952" target="_blank"><strong>全部篮球产品</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?&amp;adidascategory=953" target="_blank"><strong>全部训练产品</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5 last"><a href="http://www.adidas.com.cn/productlist" target="_blank"><strong>全部产品</strong></a></div>
+          <!--end col5--></div>
+        <!--end bottomLine--></div>
+      <!--end flyoutContWrapper min-width:950px--></div>
+    <!--end flyoutContent--></div>
+  <!--end navigation sports--> <!--start navigation brands-->
+  <div  class="headeNavOut headBrandNav"><!--start navigation button-->
+    <div  class="headNavBtn"><a class="headCatLink" href="javascript:;">品牌</a></div>
+    <!--end navigation button--> <!--start flyoutContent-->
+    <div  class="headeNavCont"><!--start flyoutContWrapper min-width:950px-->
+      <div  class="wrapper ptb10"><!--start mainline-->
+        <div  class="mainLine cf"><!--start col3-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/originals" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/top-5-originals.png" alt="originals" /></a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/originals" target="_blank"><!--<img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/Tubular-Jan-fbb-172x80.jpg" alt="" />--><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/Original-Women-Mar-172x80.jpg" alt="" /></a> <a href="http://www.adidas.com.cn/productlist/?brand_series=115&amp;product_style=215" target="_blank">鞋类</a> <a href="http://www.adidas.com.cn/productlist/?brand_series=115&amp;product_style=214" target="_blank">服装</a> <a href="http://www.adidas.com.cn/productlist/?brand_series=115&amp;product_style=216" target="_blank">箱包/附配件</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              
+              <a href="http://www.adidas.com.cn/productlist/?cat=568" target="_blank">Tubular</a>
+              
+              <a href="http://www.adidas.com.cn/productlist/?brand_series=115&amp;adidascollection=1062" target="_blank">Superstar</a> <a href="http://www.adidas.com.cn/productlist/?brand_series=115&amp;adidascollection=1112" target="_blank">Stan Smith</a>
+               <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+
+<a href="http://www.adidas.com.cn/productlist?adidascollection=1152&cat=2" target="_blank">White Mountaineering</a>
+<a href="http://www.adidas.com.cn/productlist/?cat=663"  target="_blank">Originals Women</a>
+<a href="http://www.adidas.com.cn/productlist/?cat=655"  target="_blank">EASON</a>
+<a href="http://www.adidas.com.cn/productlist/?cat=656"  target="_blank">Originals Men</a>
+
+
+             <!-- <a href="http://www.adidas.com.cn/original_is_never_finished_pc" target="_blank">原创不息</a>-->
+
+              
+              
+              </div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/adidasneo" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/top-5-Neo.png" alt="" /></a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/adidasneo" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/NEO-LIVE-RESTLESS-Mar-172x80.jpg" alt="" width="172" height="80" /></a> <a href="http://www.adidas.com.cn/productlist/?brand_series=116&amp;product_style=215" target="_blank">鞋类</a> <a href="http://www.adidas.com.cn/productlist/?brand_series=116&amp;product_style=214" target="_blank">服装</a> <a href="http://www.adidas.com.cn/productlist/?brand_series=116&amp;product_style=216" target="_blank">箱包/附配件</a>
+              <div  style="border-top: 1px solid #c8cbcc; margin-bottom: -10px; width: 30px;">&nbsp;</div>
+              <a href="http://www.adidas.com.cn/productlist/?cat=657" target="_blank">生来好动</a>
+              
+              
+              
+              </div>
+          </div>
+          <!--end col5--> <!--start stella-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?&amp;brand_series=929" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/top-5-StellaMcCartney.png" alt="Stella McCartney" /></a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/productlist/?&amp;brand_series=929" target="_blank"><img style="margin-bottom: 10px;" src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/aSMC_HIIT_172x80.jpg" alt="Stella McCartney" /></a> <a href="http://www.adidas.com.cn/productlist/?brand_series=929&amp;product_style=215" target="_blank">鞋类</a> <a href="http://www.adidas.com.cn/productlist/?brand_series=929&amp;product_style=214" target="_blank">服装</a> <a href="http://www.adidas.com.cn/productlist/?brand_series=929&amp;product_style=216" target="_blank">箱包/附配件</a></div>
+          </div>
+          <!--end stella--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/athletics" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/v2/top-5-athletics-top.png" alt="" /></a></h2>
+            <div  class="hfNavDetail"><a class="headBrandImg" href="http://www.adidas.com.cn/athletics" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/Athletics_Brand_Nav_Image.png" alt="" /></a> <a href="http://www.adidas.com.cn/productlist/?cat=526" target="_blank">男子</a> <a href="http://www.adidas.com.cn/productlist/?cat=527" target="_blank">女子</a> <a href="http://www.adidas.com.cn/productlist/?cat=518" target="_blank">男子Z.N.E.系列</a> <a href="http://www.adidas.com.cn/productlist/?cat=525" target="_blank">女子Z.N.E.系列</a> <a href="http://www.adidas.com.cn/productlist/?adidascategory=1473" target="_blank">新品上市</a> <!--<a href="http://www.adidas.com.cn/productlist/?cat=560" target="_blank">Z.N.E. Heat</a>--> </div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5 widthLine last">
+            <h2 class="hfSubNavTit"><a href="javascript:;">精选系列</a></h2>
+            <div  class="hfNavDetail"> <a href="http://www.adidas.com.cn/productlist/?cat=528" target="_blank">Z.N.E.</a>
+            
+            
+            
+            
+            
+            
+             <a href="http://www.adidas.com.cn/productlist/?cat=613" target="_blank">Originals|White Mountaineering</a> 
+            <a href="http://www.adidas.com.cn/productlist/?cat=659" target="_blank">跑步|ULTRA BOOST</a>  <a href="http://www.adidas.com.cn/productlist/?cat=622" target="_blank">跑步|COLORBOOST</a> 
+ <a href="http://www.adidas.com.cn/productlist/?cat=663"  target="_blank">Originals|Women</a> 
+<a href="http://www.adidas.com.cn/productlist/?cat=657"  target="_blank">adidas neo|生来好动</a>
+
+            
+            
+            
+                <!--          <a href="http://www.adidas.com.cn/productlist?cat=612" target="_blank">Originals|SuperStar</a>   
+            <a href="http://www.adidas.com.cn/productlist/?cat=568" target="_blank">Originals|Tubular</a>
+            
+             <a href="http://www.adidas.com.cn/productlist/?cat=657" target="_blank">adidas neo|生来好动</a> -->
+             
+
+             
+              
+              <!--  <a href="http://www.adidas.com.cn/productlist/?brand_series=115&adidascollection=1086" target="_blank">originals | Hyke</a>
+  <a href="http://www.adidas.com.cn/productlist/?brand_series=115&adidascollection=1203" target="_blank">originals | Spezial</a>
+   <a href="http://www.adidas.com.cn/productlist/?brand_series=115&adidascollection=1152" target="_blank" style="line-height:20px;">originals | Originals|White Mountaineering</a>--> 
+              <!-- <a href="http://www.adidas.com.cn/productlist/?cat=541" target="_blank">originals|Tubular</a> --> 
+              
+              <!--     <a href="http://www.adidas.com.cn/productlist/?cat=496" target="_blank">adidas originals|STAN SMITH</a> <a href="http://www.adidas.com.cn/productlist/?&amp;adidascollection=1140" target="_blank">adidas originals|ZX FLUX</a><a href="http://www.adidas.com.cn/productlist/?adidascollection=1061" target="_blank">adidas originals|ZX FAMILY</a> <a href="http://www.adidas.com.cn/productlist/?cat=495" target="_blank">adidas neo|趁现在</a><a href="http://www.adidas.com.cn/productlist/?cat=623" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/PureBoost-Feb-153x82.jpg" alt="" /> </a>--> 
+              
+               </div>
+          </div>
+          <!--end col5--></div>
+        <!--end mainline--> <!--stat bottomline-->
+        <div  class="hfBottom cf"><!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?brand_series=115" target="_blank"><strong>全部adidas Originals系列</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist?brand_series=116" target="_blank"><strong>全部adidas neo系列</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?&amp;brand_series=929" target="_blank"><strong>全部Stella McCartney系列</strong></a></div>
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?adidascategory=1473" target="_blank"><strong>全部adidas athletics系列</strong></a></div>
+          <!--end col5--></div>
+        <!--end bottomLine--></div>
+      <!--end flyoutContWrapper min-width:950px--></div>
+    <!--end flyoutContent--></div>
+  <!--end navigation brands--> <!--start delimiter--> <span class="headDivid">|</span> <!--end delimiter--> <!--start navigation news--> <!--<div  class="headeNavOut navNews">
+<div  class="headNavBtn"><a class="headCatLink" title="新品" href="http://www.adidas.com.cn/productlist?cat=493" target="_blank">新品</a></div>
+</div>
+
+<div  class="headeNavOut navSale">
+<div  class="headNavBtn"><a class="headCatLink" title="SALE" href="http://www.adidas.com.cn/productlist?cat=6" target="_blank">SALE</a></div>
+</div>
+
+-->
+  <div  class="headeNavOut headBrandNav"><!--start navigation button-->
+    <div  class="headNavBtn"><a class="headCatLink" href="http://www.adidas.com.cn/customize">miadidas定制</a></div>
+    <!--end navigation button--> <!--start flyoutContent-->
+    <div  class="headeNavCont"><!--start flyoutContWrapper min-width:950px-->
+      <div  class="wrapper ptb10"><!--start mainline-->
+        <div  class="mainLine cf"><!--start col3-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="javascript:;">热门款式</a></h2>
+            <div  class="hfNavDetail"> 
+
+            
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;adidascollection=1062" target="_blank">mi Superstar</a>
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;adidascollection=1112" target="_blank">mi Stan Smith</a>
+            
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1422" target="_blank">mi Adizero Adios</a>
+            
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1414" target="_blank">mi Energy Cloud</a>
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1417" target="_blank">mi Pure Boost X</a>
+            
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1235" target="_blank">mi Gazelle</a> 
+          <!-- <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1428" target="_blank">mi EQT</a> -->
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1053" target="_blank">mi D Lillard</a> <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1068" target="_blank">mi D Rose 7</a>
+            
+            <a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1483" target="_blank">Z.N.E.</a> 
+          
+<!--<a href="http://www.adidas.com.cn/productlist/?cat=482&amp;adidascollection=1432" target="_blank">mi PUREBOOST ZG</a> -->
+<!--<a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1422" target="_blank">mi adizero adios 3</a> -->
+            <!--<a href="http://www.adidas.com.cn/productlist/?cat=482&adidascollection=1203" target="_blank">mi Spezial</a> -->
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </div>
+          </div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=39" target="_blank">男子</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=39&amp;brand_series=115" target="_blank">Originals </a> <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=39&amp;adidascategory=943" target="_blank">跑步 </a> <!--<a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=39&amp;adidascategory=955" target="_blank">足球 </a>--> <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=39&amp;adidascategory=952" target="_blank">篮球 </a> <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;adidascollection=1431&amp;sport_gender=39" target="_blank">Adilette</a><a href="http://www.adidas.com.cn/productlist/?cat=482&sport_gender=39&adidascollection=1483" target="_blank">Z.N.E.系列</a></div>
+          </div>
+          <!--end col5--> <!--start stella-->
+          <div  class="col5">
+            <h2 class="hfSubNavTit"><a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=40" target="_blank">女子</a></h2>
+            <div  class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=40&amp;brand_series=115" target="_blank">Originals </a> <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=40&amp;adidascategory=943" target="_blank">跑步 </a> <!--<a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=40&amp;adidascategory=955" target="_blank">足球 </a>--> <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=40&amp;adidascategory=952" target="_blank">篮球 </a> <a href="http://www.adidas.com.cn/productlist/?cat=482&amp;adidascollection=1431&amp;sport_gender=40" target="_blank">Adilette</a><a href="http://www.adidas.com.cn/productlist/?cat=482&sport_gender=40&adidascollection=1483" target="_blank">Z.N.E.系列</a></div>
+          </div>
+          <!--end stella--> <!--start col5-->
+          <div  class="col3 last">
+            <div  class="hfNavDetail"> <a href="http://www.adidas.com.cn/customize" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/misuperster-Feb-307x200.jpg" alt="" /></a> 
+            
+            <!--<span style="margin-top: 10px;display: block;color: #000;text-decoration: none; width:510px;">
+  结算时输入优惠代码"<strong style="color:#f00;">mi2017</strong>"  miadidas定制产品立减<b style="color:#f00;font-size: 18px;">88</b>元</span>-->
+            
+            </div>
+          </div>
+          <!--end col5--></div>
+        <!--end mainline--> <!--stat bottomline-->
+        <div  class="hfBottom cf"><!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?cat=482" target="_blank"><strong>查看全部miadidas定制产品</strong> </a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=39" target="_blank"><strong>全部男子miadidas定制产品</strong></a></div>
+          <!--end col5--> <!--start col5-->
+          <div  class="col5"><a href="http://www.adidas.com.cn/productlist/?cat=482&amp;sport_gender=40" target="_blank"><strong>全部女子miadidas定制产品</strong> </a></div>
+          <div  class="col3"><a href="http://www.adidas.com.cn/productlist/?cat=482" target="_blank"><strong>查看全部miadidas定制产品</strong> </a></div>
+          <!--end col5--></div>
+        <!--end bottomLine--></div>
+      <!--end flyoutContWrapper min-width:950px--></div>
+    <!--end flyoutContent--></div>
+    
+    
+<!--    <div style="color: rgb(204, 204, 204); float: left; font-size: 13px; line-height: 120%; width: 300px; margin: 11px 0px 0px 130px;">尊敬的顾客，1月27日至1月31日春节期间仓库物流暂停收发货，<br>2月1日起恢复正常服务，给您带来不便，敬请谅解。谢谢！</div>-->
+    
+    
+  <!--end navigation sale--></div>
+<!--start minicart,myaccount,search column-->            <!--start minicart,myaccount,search column-->
+            <div class="column unilty fr">
+            	<!--start minicart-->
+            	<div class="minicart">
+                	<!--start navigation button-->
+                	<a href="https://www.adidas.com.cn/checkout/cart/" title="minicart" class="minicartNum headIconBtn"><strong class="miniNum">0</strong></a>
+                    <!--end navigation button-->
+                </div>
+                <!--end minicart-->
+				
+                <!--start search nav value="" -->
+				<div class="searchinput_redesignWrapper">
+						<form class="simplesearch" id="search_mini_form" action="http://www.adidas.com.cn/catalogsearch/result/" method="get">
+					<div class="searchinput_redesign">
+						<a class="close">close <span class="icon-svg44"></span></a>
+						<input id="arvato_q" name="q"  value=""  autocomplete="off" placeholder="搜索" >
+					</div>
+						</form>
+                    <div class="search_result">
+                          <div class="headSeachList">
+                           <!--<div class="headline">相关关键字</div>
+                            <div class="headProTit Keywordlist">
+                                 <a href="#" title="men">男子</a>
+                                <a href="#" title="2015 FIFA Womens World Cup">男子篮球</a>
+                                <a href="#" title="Men">男子训练</a> 
+                            </div>-->
+                        </div>
+                        
+                     </div>
+				</div>
+                <!--end search nav-->
+
+</div>
+            <!--end minicart,myaccount,search column-->                
+<script>
+function submit_search_mini_form()
+{
+	jQuery('#search_mini_form').submit() ; 
+}
+function utag_addto_search_term(itemUrl,search_product,search_term){
+  console.log(itemUrl+"-----"+search_product+"----"+search_term);
+  window.utag.link({  
+      event_name : 'SEARCH-PRODUCTS', 
+      search_term : search_term, 
+      search_product : search_product
+  });
+  location.href=itemUrl;
+}
+</script>                
+          </div>
+    </div>
+    <!--end black background header-->
+    
+</div>
+<div class="sticky_proxy" style="height: 12px;">&nbsp;</div>
+<script type="text/javascript">
+	function scrollTextCall(){
+		//var _str='';
+		//$common.searchHead.scrollTextStartFun(_str);
+	}
+</script>
+
+    		<!--start pop bg-->
+			<div class="addCartOverlay"></div>
+			<!--end pop bg-->
+    		
+    		    		<!--start  main-->
+        <!-- << 面包屑 -->
+        <div class="clear_breadcrumbs_wrapper darkBg mt68">
+                <div class="wrapperLV2">
+                        <a href="https://www.adidas.com.cn/" title="">首页</a>
+                        <span class="divider">/</span>
+                        <a href="https://www.adidas.com.cn/customer/account/login/" title="">登录/注册</a>
+                        <span class="divider">/</span>
+                        <span class="currentPageGary">注册</span>
+                </div>		
+        </div>
+	<!-- 面包屑 >> -->
+          <div class="alertBoxError alertBox mt20"><p class="alertBoxCont">该E-mail已被注册</p></div>            <!--start login & register -->
+        	<!--start wrapper min-width:950px-->
+              <div class="wrapperLV2">
+                <div class="registerMain cf">
+            	<!--start left aside col3-1-->
+                <form action="https://www.adidas.com.cn/customer/account/createpost/" method="post" id="form-validate" enctype="multipart/form-data">
+            	<div class="col3-1">
+                    <!--start login info-->
+                    <input type="hidden" name="token" value="c90675cb6dcaa44aca8a6a47ceaa8b77" />
+
+                    <!--start personal info-->
+                    <div class="personalInfo mt32">
+                            <h4 class="font18 qwe0">个人信息</h4>
+                           <!--真实姓名start-->
+                            <div class="cf">
+                                     <div class="commonInputBox w320 fl">
+                                            <input type="text" id="firstname" name="firstname" value="" title="真实姓名" class="textInput commonInput" placeholder="*真实姓名" />
+                                            <p id="firstname_exist_msg" class="errormessage" style="display:none"></p>
+                                    </div>
+                                    <span class="fl registerTips mt10">为了给您带来更好的服务，请填写您的真实姓名</span>
+                            </div>
+                           <!--真实姓名end-->
+                            <!--手机start-->
+                            <div class="commonInputBox w320 mt20">
+                                <input type="text" name="mobile"  id="mobile_phone" value="" title="手机" class="textInput commonInput" placeholder="*手机" />
+                                <p id="mobile_exist_msg" class="errormessage" style="display:none"></p>
+                            </div>
+                           <!--手机end-->
+                            <!--start gender box-->
+                            <div class="checkStock radioBionic radioBox cf radioEvent mt20">
+                                <h5 class="genderTit">性别</h5>
+                                <p class="fl"><input  type="radio" value="2" name="gender" id="gender_2"><span>女子</span></p>
+                                <p class="fl ml20"><input  type="radio" value="1" name="gender" id="gender_1"><span>男子</span></p>
+                            </div>
+                            <!--end gender box-->
+                       
+                             <!--start birthday box-->
+                            <div class="cf mt20">
+                                <h5 class="genderTit">出生日期</h5>
+                                 <div class="copySelect fl w65 mr5" >
+                                    <select id="select_day" name="day"></select>
+                                </div>
+                                 <div class="copySelect fl w65 mr5" name="month">
+                                    <select id="select_month"></select>
+                                </div>
+                                <div class="copySelect fl w65">
+                                    <select id="select_year" name="year"></select>
+                                    <p id="genderTit_exist_msg" class="errormessage" style="display:none"></p>
+                                </div>
+                                <input id="dob" type="hidden" name="dob" value="">
+                            </div>
+                            <!--end birthday box-->
+                            <div class="mt20 verificationBox cf"> 
+                                        
+    <div class="commonInputBox fl w120" id="osolCatchaTxt1_yz">
+         <input type="text" name="osolCatchaTxt" id="osolCatchaTxt1" onkeyup="CtoH(this);"  class="textInput commonInput" placeholder="*验证码" value=""/>&nbsp;
+         <p id="osolCatchaTxt_exist_msg" class="errormessage" style="display:none"></p>
+         <input type="hidden" name="osolCatchaTxtInst" id="osolCatchaTxtInst" value="1" />      
+    </div>
+    <div class="verificationCode fl">
+       
+        <a href="#" onclick="reloadCapthcha(1);return false;"><img id="captchaCode1"   width="93px" height="40px" src="https://www.adidas.com.cn/captcha/ajax/freshcaptcha?instanceNo=1/&amp;time=1489946592" alt="" /></a>
+         <span class="refreshCode">
+        看不清？	
+        <a href="#" onclick="reloadCapthcha(1);return false;" title="换一张">换一张</a>
+         </span>
+    </div>
+<script type="text/javascript">
+    if(!FORM_KEY) {
+        var FORM_KEY = 'test';
+    }
+    function reloadCapthcha(instanceNo) {
+        var captchaSrc = "https://www.adidas.com.cn/captcha/ajax/freshcaptcha?instanceNo=1/"+"&amp;time="+ new Date().getTime();
+        document.getElementById('captchaCode'+instanceNo).src = captchaSrc;
+    }
+    //全角转半角
+    function CtoH(obj){
+      var str=obj.value.replace(/(^\s+)|(\s+$)/g, "");
+      var result="";
+      for (var i = 0; i < str.length; i++){
+        if (str.charCodeAt(i)==12288){
+          result+= String.fromCharCode(str.charCodeAt(i)-12256);
+          continue;
+        }
+        if (str.charCodeAt(i)>65280 && str.charCodeAt(i)<65375) result+= String.fromCharCode(str.charCodeAt(i)-65248);
+        else result+= String.fromCharCode(str.charCodeAt(i));
+      }
+      obj.value=result;
+    } 
+//jQuery(document).ready(function(){
+//	reloadCapthcha(1);
+//});
+</script>                            </div>
+                    </div>
+                    <!--end personal info-->
+ 
+                    <div class="loginInfo mt25">
+                        <h4 class="font18">登录信息</h4>
+                        <div class="cf">
+                             <div class="commonInputBox w320 fl">
+                                <input type="text" name="email" id="email_address"  value="" title="电子邮件" class="textInput commonInput"   placeholder="*电子邮件" />
+                                <p id="email_exist_msg" class="errormessage" style="display: none"></p>     
+                             </div>
+                        <span class="fl registerTips mt10">请填写常用的电子邮件地址</span>
+
+                        </div>
+                         <div class="cf mt20">
+                            <div class="commonInputBox w320 fl">
+                                <input type="text" name="username"   id="username" value="" title="用户名" class="textInput commonInput"  placeholder="*用户名"/>
+                                <p id="username_exist_msg" class="errormessage" style="display:none"></p> 
+                            </div>
+                            <span class="fl registerTips">5～20个字符,字母开头,包括数字、下划线,字母 或数字结束不区分大小写。</span>
+                        </div>
+                        
+                        <div class="cf mt20">
+                            <div class="commonInputBox w320  fl">
+                                <input type="password" name="password" id="password"  title="密　　码" class="textInput commonInput" placeholder="*密　　码"/>
+                                <p id="password_exist_msg" class="errormessage" style="display:none"></p>
+                            </div>
+                            <span class="fl registerTips">请输入6个或更多字符，前后空格将被忽略。密码不能全为数字。</span>
+                        </div>
+                        
+                        <div class="commonInputBox w320 mt20">
+                            <input type="password" name="confirmation" title="确认密码" id="confirmation" class="textInput commonInput" placeholder="*确认密码"/>
+                            <p id="confirmation_exist_msg" class="errormessage" style="display:none"></p>
+                        </div>
+                 </div>
+                  
+                    <!--end login info-->
+                    <!--start Subscription mail-->
+                    <div class="checkStock cf checkBox radioBionic radioEvent mt20 " id="agree_terms_div">
+                    	 <p class="fl"><input type="checkbox" class="checkbox required-entry"  value="1" id="agree_terms" name="agree_terms" /></p>
+                         <span class="fl"> 我接受注册<a href="http://www.adidas.com/cn/pages/legal/terms-conditions" title="用户协议" class="colorMidBlue userProtocol">用户协议</a>并承诺点击（注册）按钮即表示我已阅读并接受注册用户协议</span>
+                         <span class="aiyayaErro ">请同意用户协议</span>
+                    </div>
+                    <!--end Subscription mail-->
+                    <button type="submit" id="subButton" class="btnCommon btnArrow btnBlueLinear w320 mt40" title="注册"><span><span>注册</span></span></button>
+
+                </div>
+                </form>
+                <!--end left aside col3-1-->
+                <!--start right aside col3-->
+                <div class="col4 last">	
+                    <div class="helpBox cf"><!--<span class="helpTit">Tips</span> <span class="helpTips">立即注册成为我们的用户,将获得 <em class="colorMidBlue">50</em> 积分的奖励</span>-->
+
+<span class="helpTit">Tips</span>
+<span class="helpTips">全新会员积分体系即将上线！</span>
+
+<span class="helpTips">
+我们现有积分体系将于2017年1月10日下线.。2017年1月9日24:00后下单交易，注册，评论等所有线上行为将不再产在此之前获得的积分在原有效期可继续使用,但最晚不应迟于2017年3月9日24:00前使用，此后任何剩余积分将清零并停止使用。</span>
+
+</div>
+       
+                </div>
+                <!--end right aside col3-->
+            </div>
+            <div class="sticky_proxy" style="height:156px;"></div>
+        </div>
+            <!--end wrapper min-width:950px-->
+        <!--end login & register -->
+        <!--end  main-->
+        <script>
+            $(function() {
+                //年月日js
+                $.ms_DatePicker({
+                    YearSelector: "#select_year",
+                    MonthSelector: "#select_month",
+                    DaySelector: "#select_day"
+                });
+                //是否接受条款
+                $("#agree_terms").on('change',function(){     
+                    if($(this).attr("checked")){
+                        if($('#subButton').hasClass("btnMidGray")){
+                            $('#subButton').removeClass("btnMidGray");
+                        }
+                        if($("#agree_terms_div").hasClass("showErro")){
+                            $("#agree_terms_div").removeClass("showErro");
+                        }
+                        
+                        $("#subButton").attr("disabled", false);
+                    }else{
+                        $('#subButton').addClass("btnMidGray");
+                        $("#subButton").attr("disabled", true); 
+                        $('#agree_terms_div').addClass("showErro");
+                    }								
+                });
+                var flag = { 
+                    "email_address":false, 
+                    "username":false, 
+                    "password":false,  
+                    "confirmation":false,
+                    "firstname":false,
+                    "mobile_phone":false,
+                    "osolCatchaTxt1":false,
+                    "genderTit":false,
+                }; 
+          
+                //邮件验证start
+                $("#email_address").focus(function(){
+                    $('#email_exist_msg').hide();
+                    if($(this).parent().hasClass("errorInput")){
+                        $(this).parent().removeClass("errorInput");
+                    }
+                    if($(this).parent().hasClass("correctInput")){
+                        $(this).parent().removeClass("correctInput");
+                    }  
+                });
+                
+                $("#email_address").blur(function(){
+                    emailcheck();
+                });  
+                //邮件验证end
+                //用户名start
+                $("#username").focus(function(){ 
+                    $('#username_exist_msg').hide();
+                    if($(this).parent().hasClass("errorInput")){
+                        $(this).parent().removeClass("errorInput");
+                    }
+                    if($(this).parent().hasClass("correctInput")){
+                        $(this).parent().removeClass("correctInput");
+                    } 
+                });
+                $("#username").blur(function(){
+                    checkusername();
+                });
+                //用户名end
+                //密 码password
+                $("#password").focus(function(){
+                    $('#password_exist_msg').hide();
+                    if($(this).parent().hasClass("errorInput")){
+                        $(this).parent().removeClass("errorInput");
+                    }
+                    if($(this).parent().hasClass("correctInput")){
+                        $(this).parent().removeClass("correctInput");
+                    } 
+                });
+                $("#password").blur(function(){                 
+                    var isNumber =new  RegExp("^[0-9]+$").test($.trim($(this).val()));
+                    if($.trim($(this).val()).length>=6 && !isNumber){
+                        $('#password_exist_msg').hide();
+                        if($(this).parent().hasClass("errorInput")){
+                            $(this).parent().removeClass("errorInput");
+                        }
+                        $(this).parent().addClass("correctInput");  
+                        
+                    }else{
+                        if(isNumber){
+                            $('#password_exist_msg').text("密码不能全为数字。");
+                        }else{
+                             $('#password_exist_msg').text("请输入6个或更多字符，前后空格将被忽略");  
+                        }
+                        $('#password_exist_msg').show();
+                        if($(this).parent().hasClass("correctInput")){
+                            $(this).parent().removeClass("correctInput");
+                        }
+                        $(this).parent().addClass("errorInput");
+                    }
+		
+                });
+                
+                //confirmation
+                $("#confirmation").focus(function(){ 
+                    $("#confirmation_exist_msg").hide();
+                    if($(this).parent().hasClass("errorInput")){
+                        $(this).parent().removeClass("errorInput");
+                    }
+                    if($(this).parent().hasClass("correctInput")){
+                        $(this).parent().removeClass("correctInput");
+                    }                    
+                });
+                
+                $("#confirmation").blur(function(){
+                    var confirmationVal = $.trim($(this).val());
+                    var pass= $.trim($("#password").val());
+                    if(confirmationVal == pass && confirmationVal.length>0){
+                          $("#confirmation_exist_msg").hide();
+                        if($(this).parent().hasClass("errorInput")){
+                            $(this).parent().removeClass("errorInput");
+                        }
+                        $(this).parent().addClass("correctInput"); 
+                    }else{
+                          
+                         if($(this).parent().hasClass("correctInput")){
+                            $(this).parent().removeClass("correctInput");
+                        }
+                        
+                        $(this).parent().addClass("errorInput");
+                        if(confirmationVal.length==0){
+                            $('#confirmation_exist_msg').text("确认密码不能为空");
+                        }else{
+                            $('#confirmation_exist_msg').text("请确认密码一致");
+                        }
+                        $("#confirmation_exist_msg").show();
+                        
+                    }
+                });
+             
+                //firstname 真实姓名
+                $("#firstname").focus(function(){ 
+                    $("#firstname_exist_msg").hide();
+                    if($(this).parent().hasClass("errorInput")){
+                        $(this).parent().removeClass("errorInput");
+                    }
+                    if($(this).parent().hasClass("correctInput")){
+                        $(this).parent().removeClass("correctInput");
+                    }                    
+                });
+                $("#firstname").blur(function(){
+                     if($.trim($(this).val()).length==0 || $(this).val()==$.trim($(this).attr("placeholder"))){
+                        if($(this).parent().hasClass("correctInput")){
+                            $(this).parent().removeClass("correctInput");
+                        }
+                        $(this).parent().addClass('errorInput');
+                        $("#firstname_exist_msg").show();
+                        $("#firstname_exist_msg").text("请填写真实姓名");
+                    }else{
+                        if($(this).parent().hasClass("correctInput")){
+                            $(this).parent().removeClass("errorInput");
+                        }
+                        $(this).parent().addClass('correctInput');
+                        $("#firstname_exist_msg").hide();
+                     }
+                    
+                });
+                //手机验证
+                $("#mobile_phone").focus(function(){
+                    if($(this).parent().hasClass("errorInput")){
+                        $(this).parent().removeClass("errorInput");
+                    }
+                    if($(this).parent().hasClass("correctInput")){
+                        $(this).parent().removeClass("correctInput");
+                    } 
+                });
+                $("#mobile_phone").blur(function(){
+                    var MobilePhone = $.trim($(this).val());
+                    var phoneZZ=/^[0-9]{11}$/;
+                        if(phoneZZ.test(MobilePhone)){
+                            var checkMobilePhoneUrl = 'https://www.adidas.com.cn/specific/ajaxcustomer/checkmobile/';
+                            $.post(checkMobilePhoneUrl,{mobile_phone:MobilePhone},function(data){
+                                //存在该手机号码
+                                if(data=='1'){
+                                    if($("mobile_phone").parent().hasClass("correctInput")){
+                                        $("#mobile_phone").parent().removeClass("correctInput");
+                                    } 
+                                    $("#mobile_phone").parent().addClass("errorInput");
+                                    $('#mobile_exist_msg').show();
+                                    $('#mobile_exist_msg').text('该手机号已被注册');
+                                }else{
+                                    if($("#mobile_phone").parent().hasClass("errorInput")){
+                                        $("#mobile_phone").parent().removeClass("errorInput");
+                                    }
+                                    $('#mobile_phone').parent().addClass("correctInput");
+                                    $('#mobile_exist_msg').hide();
+                                    
+                                }
+                            });
+                        }else{
+                            if($(this).parent().hasClass("correctInput")){
+                                $(this).parent().removeClass("correctInput");
+                            } 
+                            $(this).parent().addClass("errorInput");
+                            $('#mobile_exist_msg').show();
+                            $('#mobile_exist_msg').text("请输入至少11位数字");
+                        }
+                });
+                
+                 //验证码
+                $("#osolCatchaTxt1").focus(function (){
+                     $("#osolCatchaTxt_exist_msg").hide();
+                    if($("#osolCatchaTxt1_yz").hasClass("errorInput")){
+                        $("#osolCatchaTxt1_yz").removeClass("errorInput");
+                    }
+                    if($("#osolCatchaTxt1_yz").hasClass("correctInput")){
+                        $("#osolCatchaTxt1_yz").removeClass("correctInput");
+                    }
+                    
+                }); 
+                
+                $("#osolCatchaTxt1").blur(function(){
+                    var verify=$.trim($(this).val());
+                    if(verify.length==0 ||  verify==$.trim($(this).attr("placeholder"))){ 
+                        if($("#osolCatchaTxt1_yz").hasClass("errorInput")){
+                            $("#osolCatchaTxt1_yz").removeClass("errorInput");
+                        }
+                        
+                        $("#osolCatchaTxt1_yz").addClass("errorInput");
+                        $("#osolCatchaTxt_exist_msg").show();
+                        $("#osolCatchaTxt_exist_msg").text("必填字段");
+                        
+                    }else{ 
+                        var reloadurl = 'https://www.adidas.com.cn/captcha/ajax/validateCaptcha/firstParam/sreekanth/';
+                        var form_key="4SwyBvdGmm57FQOP";
+                        $.post(reloadurl,{osolCatchaTxt:verify,form_key:form_key},function(data){
+                            var data=$.trim(data);
+                            if(data=='correct'){
+                                if($("#osolCatchaTxt1_yz").hasClass("errorInput")){
+                                    $("#osolCatchaTxt1_yz").removeClass("errorInput");
+                                }
+                                $("#osolCatchaTxt1_yz").addClass("correctInput");
+                                $("#osolCatchaTxt_exist_msg").hide();
+                            }else{
+                                if($("#osolCatchaTxt1_yz").hasClass("correctInput")){
+                                    $("#osolCatchaTxt1_yz").removeClass("correctInput");
+                                }
+                                $("#osolCatchaTxt1_yz").addClass("errorInput");
+                                $("#osolCatchaTxt_exist_msg").show();
+                                $("#osolCatchaTxt_exist_msg").text("验证码有误");
+                            }
+                        });
+                     }
+                }) ;
+                //验证码end
+                //数据提交
+                $("#form-validate").submit(function(){
+                    //防止多次提交表单
+                    if($("#subButton").hasClass("btnMidGray")){
+                           return false;
+                    }
+                    //出生日期
+                    if(($.trim($("#select_year").val()) !=0) && ($.trim($("#select_month").val())!=0) && ($.trim($("#select_day").val())!=0) ){
+                       var date=$.trim($("#select_year").val())+'-'+$.trim($("#select_month").val())+'-'+$.trim($("#select_day").val());
+                       $("#dob").val(date);
+                    }
+                     var utagDataError='';
+                    //出生日期start
+                    if(($.trim($("#select_year").val()) ==0) && ($.trim($("#select_month").val())==0) && ($.trim($("#select_day").val())==0)){
+                        flag.genderTit=true;
+                        if($("#select_year").parent().hasClass("errorSelect")){
+                           $("#select_year").parent().removeClass("errorSelect");                          
+                        }
+                        if($("#select_month").parent().hasClass("errorSelect")){
+                           $("#select_month").parent().removeClass("errorSelect");                          
+                        }
+                        if($("#select_day").parent().hasClass("errorSelect")){
+                           $("#select_day").parent().removeClass("errorSelect");                          
+                        }
+                        $("#genderTit_exist_msg").hide();
+                        $("#genderTit_exist_msg").text(" ");
+                        utagDataError='';
+                    }else{
+                        if( ($.trim($("#select_year").val()) !=0) && ($.trim($("#select_month").val())!=0) && ($.trim($("#select_day").val())!=0) ){ 
+                            flag.genderTit=true;
+                            if($("#select_year").parent().hasClass("errorSelect")){
+                                $("#select_year").parent().removeClass("errorSelect"); 
+                            }
+                            if($("#select_month").parent().hasClass("errorSelect")){
+                                $("#select_month").parent().removeClass("errorSelect"); 
+                            }
+                            if($("#select_day").parent().hasClass("errorSelect")){
+                                $("#select_day").parent().removeClass("errorSelect"); 
+                            }
+                            $("#genderTit_exist_msg").hide();
+                            $("#genderTit_exist_msg").text(" ");
+                            utagDataError='';
+                        }else{
+                            $("#select_year").parent().addClass("errorSelect");
+                            $("#select_month").parent().addClass("errorSelect");
+                            $("#select_day").parent().addClass("errorSelect");
+                            $("#genderTit_exist_msg").show();
+                            $("#genderTit_exist_msg").text("请输入一个有效的日期");
+                            utagDataError='month,day,year';
+                            flag.genderTit=false;
+                        }
+                    }
+                 
+                    //出生日期end
+                    //电子邮件start
+                    var utagAddressError='';
+                    if($("#email_address").parent().hasClass("correctInput")){
+                        flag.email_address=true;
+                        utagAddressError='';
+                    }else{
+                        flag.email_address=false;
+                        var checkEmailUrl = 'https://www.adidas.com.cn/specific/ajaxcustomer/checkemailaddress/';
+                        var email_address = $.trim($('#email_address').val());
+                        var isEmail=new RegExp("^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$").test(email_address);   
+                        if(isEmail){
+                            //alert(email_address);
+                            $.post(checkEmailUrl,{email_address:email_address},function(data){
+                                //存在该电子邮箱
+                                if(data=='1'){
+                                    $('#email_exist_msg').text('该E-mail已被注册');
+                                    $('#email_exist_msg').show();
+                                    if($('#email_address').hasClass("correctInput")){
+                                        $('#email_address').parent().removeClass("correctInput");
+                                    }
+                                    $('#email_address').parent().addClass("errorInput");
+                                     utagAddressError='email';
+                                    flag.email_address=false;
+                                }else{
+                                    $('#email_exist_msg').hide();
+                                    if($('#email_address').parent().hasClass("errorInput")){
+                                        $('#email_address').parent().removeClass("errorInput");
+                                    }
+                                    $('#email_address').parent().addClass("correctInput");
+                                    flag.email_address=true;
+                                     utagAddressError='';
+                                    $("#form-validate").trigger("submit");
+                                }
+
+                            });
+                            
+                        }else{
+                            utagAddressError='email';
+                            $('#email_exist_msg').text('请输入正确的电子邮件地址');
+                            $('#email_exist_msg').show();
+                            $('#email_address').parent().addClass("errorInput");
+                            flag.email_address=false;
+                        }
+                    }
+                    
+                    //电子邮件end
+                    //用户名start
+                    var utagUsernameError='';
+                    if($("#username").parent().hasClass("correctInput")){
+                        flag.username=true;
+                       utagUsernameError='';
+                    }else{
+                        flag.username=false;
+                       utagUsernameError='username';
+                        var checkUsernameUrl = 'https://www.adidas.com.cn/specific/ajaxcustomer/checkusername/';
+                        var username = $.trim($('#username').val());
+                        var isUsername=new RegExp("^[A-Za-z]{1}[A-Za-z0-9_\\-]{4,20}$").test(username);   
+                        if(isUsername){
+                               $.post(checkUsernameUrl,{username:username},function(data){
+                                //存在该电子邮箱
+                                if(data=='1'){
+                                    $('#username_exist_msg').text('该用户名已被注册');
+                                    $('#username_exist_msg').show();
+                                    if($('#username').hasClass("correctInput")){
+                                        $('#username').parent().removeClass("correctInput");
+                                    }
+                                    $('#username').parent().addClass("errorInput");
+                                    flag.username=false;
+                                    utagUsernameError='username';
+                                }else{
+                                    $('#username_exist_msg').hide();
+                                    if($('#username').parent().hasClass("errorInput")){
+                                        $('#username').parent().removeClass("errorInput");
+                                    }
+                                    $('#username').parent().addClass("correctInput");
+                                     flag.username=true;
+                                    utagUsernameError='';
+                                    $("#form-validate").trigger("submit");
+                                }
+
+                             })
+                        }else{
+                            $('#username_exist_msg').text('请输入正确格式的用户名');
+                            $('#username_exist_msg').show();
+                            $('#username').parent().addClass("errorInput");
+                            utagUsernameError='username';
+                            flag.username=false;
+                        }
+                    }
+                    
+                    //用户名end
+                    var utagpasswordError='';
+                    //密码start
+                     if($("#password").parent().hasClass("correctInput")){
+                         utagpasswordError='';
+                        flag.password=true;
+                    }else{
+                         utagpasswordError='password';
+                        flag.password=false;
+                        $("#password").trigger('blur');
+                    }
+                    //密码end
+                   
+                    //确认密码start
+                     var utagConfirmationError='';
+                    if($("#confirmation").parent().hasClass("correctInput")){
+                        flag.confirmation=true;
+                        utagConfirmationError='';
+                    }else{
+                        flag.confirmation=false;
+                        utagConfirmationError='confirmation';
+                        $("#confirmation").trigger('blur');
+                    } 
+                    //确认密码end
+                    //真实姓名start
+                    var utagfirstnameError='';
+                    if($("#firstname").parent().hasClass("correctInput")){
+                        flag.firstname=true;
+                        utagfirstnameError='';
+                    }else{
+                        flag.firstname=false;
+                        utagfirstnameError='firstname';
+                        $("#firstname").trigger('blur');
+                    }
+                    //真实姓名end
+                    //mobile_phone start
+                    var utagmobile_phoneError='';
+                    if($("#mobile_phone").parent().hasClass("correctInput")){
+                        flag.mobile_phone=true;
+                        utagmobile_phoneError='';
+                    }else{
+                        flag.mobile_phone=false;
+                        utagmobile_phoneError='mobile';
+                        var MobilePhone = $.trim($("#mobile_phone").val());
+                        var phoneZZ=/^[0-9]{11}$/;
+                        if(phoneZZ.test(MobilePhone)){
+                            var checkMobilePhoneUrl = 'https://www.adidas.com.cn/specific/ajaxcustomer/checkmobile/';
+                            $.post(checkMobilePhoneUrl,{mobile_phone:MobilePhone},function(data){
+                                //存在该手机号码
+                                if(data=='1'){
+                                    if($("mobile_phone").parent().hasClass("correctInput")){
+                                        $("#mobile_phone").parent().removeClass("correctInput");
+                                    } 
+                                    $("#mobile_phone").parent().addClass("errorInput");
+                                    $('#mobile_exist_msg').show();
+                                    $('#mobile_exist_msg').text('该手机号已被注册');
+                                    flag.mobile_phone=false;
+                                    utagmobile_phoneError='mobile';
+                                }else{
+                                    if($("#mobile_phone").parent().hasClass("errorInput")){
+                                        $("#mobile_phone").parent().removeClass("errorInput");
+                                    }
+                                    $('#mobile_phone').parent().addClass("correctInput");
+                                    $('#mobile_exist_msg').hide();
+                                    flag.mobile_phone=true;
+                                    utagmobile_phoneError='';
+                                    $("#form-validate").trigger("submit");
+                                }
+                            });
+                        }else{
+                            utagmobile_phoneError='mobile';
+                            if($("#mobile_phone").parent().hasClass("correctInput")){
+                                $("#mobile_phone").parent().removeClass("correctInput");
+                            } 
+                            $("#mobile_phone").parent().addClass("errorInput");
+                            $('#mobile_exist_msg').show();
+                            $('#mobile_exist_msg').text("请输入至少11位数字");
+                        }
+                    } 
+                    //end
+                    //验证码start
+                    var utagYzmError='';
+                    if($("#osolCatchaTxt1_yz").hasClass("correctInput")){
+                        flag.osolCatchaTxt1=true;
+                         utagYzmError='';
+                    }else{
+                        flag.osolCatchaTxt1=false;
+                            var verify=$.trim($("#osolCatchaTxt1").val());
+    
+                            if(verify.length==0 ||  verify==$.trim($("#osolCatchaTxt1").attr("placeholder"))){ 
+                                $("#osolCatchaTxt1_yz").removeClass("errorInput");
+                                $("#osolCatchaTxt1_yz").addClass("errorInput");
+                                $("#osolCatchaTxt_exist_msg").show();
+                                $("#osolCatchaTxt_exist_msg").text("必填字段");
+                                 utagYzmError='osolCatchaTxt';
+                            }else{ 
+                                var reloadurl = 'https://www.adidas.com.cn/captcha/ajax/validateCaptcha/firstParam/sreekanth/';
+                                var form_key="4SwyBvdGmm57FQOP";
+                                $.post(reloadurl,{osolCatchaTxt:verify,form_key:form_key},function(data){
+                                    var data=$.trim(data);
+                                    if(data=='correct'){
+                                        if($("#osolCatchaTxt1_yz").hasClass("errorInput")){
+                                            $("#osolCatchaTxt1_yz").removeClass("errorInput");
+                                        }
+                                        $("#osolCatchaTxt1_yz").addClass("correctInput");
+                                        flag.osolCatchaTxt1=true;
+                                         utagYzmError='';
+                                        $("#osolCatchaTxt_exist_msg").hide();
+                                        $("#form-validate").trigger("submit");
+                                    }else{
+                                        if($("#osolCatchaTxt1_yz").hasClass("correctInput")){
+                                            $("#osolCatchaTxt1_yz").removeClass("correctInput");
+                                        }
+                                        $("#osolCatchaTxt1_yz").addClass("errorInput");
+                                        $("#osolCatchaTxt_exist_msg").show();
+                                        $("#osolCatchaTxt_exist_msg").text("验证码有误");
+                                        flag.osolCatchaTxt1=false;
+                                         utagYzmError='osolCatchaTxt';
+                                    }
+                                });
+                             }
+                    }
+                    //验证码end
+                   ok=flag.email_address&&flag.username&&flag.password&&flag.confirmation&&flag.firstname&&flag.mobile_phone&&flag.osolCatchaTxt1&&flag.genderTit;
+                   
+                   if(ok){
+                        if(!$("#agree_terms").attr("checked")){
+                            $('#subButton').addClass("btnMidGray");
+                            $('#agree_terms_div').addClass("showErro");
+                            $("#subButton").attr("disabled", true); 
+                            return false;
+                        }else{
+                            if($("#agree_terms_div").hasClass("showErro")){
+                                $("#agree_terms_div").removeClass("showErro");
+                            }
+                        }
+                        $("#subButton").addClass('btnMidGray');
+                        return true;  
+                   }
+                   
+                     var registrationFormError= [];
+                    if(utagDataError !=''){//utagDataError
+                        registrationFormError.push(utagDataError);
+                    }
+                    if(utagAddressError!=''){
+                        registrationFormError.push(utagAddressError);
+                    }
+                    if(utagUsernameError!=''){
+                        registrationFormError.push(utagUsernameError);
+                    }
+                    if(utagpasswordError!=''){
+                        registrationFormError.push(utagpasswordError);
+                    }
+                    if(utagConfirmationError!=''){
+                        registrationFormError.push(utagConfirmationError);
+                    }
+                    if(utagfirstnameError!=''){
+                        registrationFormError.push(utagfirstnameError);
+                    }
+                    if(utagmobile_phoneError!=''){
+                        registrationFormError.push(utagmobile_phoneError);
+                    }
+                    if(utagYzmError!=''){
+                        registrationFormError.push(utagYzmError);
+                    }
+                    analyst_add_to_registrationformerror(registrationFormError);                  
+                   //用户协议start
+                    if(!$("#agree_terms").attr("checked")){
+                        $('#subButton').addClass("btnMidGray");
+                        $('#agree_terms_div').addClass("showErro");
+                        $("#subButton").attr("disabled", true); 
+                        return false;
+                    }else{
+                        if($("#agree_terms_div").hasClass("showErro")){
+                            $("#agree_terms_div").removeClass("showErro");
+                        }
+                    }
+                    //用户协议end
+                    return false;
+                });
+            });
+            
+            function emailcheck(){
+		var checkEmailUrl = 'https://www.adidas.com.cn/specific/ajaxcustomer/checkemailaddress/';
+		var email_address = $.trim($('#email_address').val());
+                var isEmail=new RegExp("^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$").test(email_address);   
+                if(isEmail){
+                    //alert(email_address);
+                    $.post(checkEmailUrl,{email_address:email_address},function(data){
+                        //存在该电子邮箱
+                        if(data=='1'){
+                            $('#email_exist_msg').text('该E-mail已被注册');
+                            $('#email_exist_msg').show();
+                            if($('#email_address').hasClass("correctInput")){
+                                $('#email_address').parent().removeClass("correctInput");
+                            }
+                            $('#email_address').parent().addClass("errorInput");
+                        }else{
+                            $('#email_exist_msg').hide();
+                            if($('#email_address').parent().hasClass("errorInput")){
+                                $('#email_address').parent().removeClass("errorInput");
+                            }
+                            $('#email_address').parent().addClass("correctInput");
+                        }
+
+                    });
+                    return ;
+                }else{
+                    $('#email_exist_msg').text('请输入正确的电子邮件地址');
+                    $('#email_exist_msg').show();
+                    $('#email_address').parent().addClass("errorInput");
+                    return ;
+                }
+	}
+        function checkusername(){	    
+		var checkUsernameUrl = 'https://www.adidas.com.cn/specific/ajaxcustomer/checkusername/';
+		var username = $.trim($('#username').val());
+                var isUsername=new RegExp("^[A-Za-z]{1}[a-zA-Z0-9_]{4,19}$").test(username);   
+                if(isUsername){
+                       $.post(checkUsernameUrl,{username:username},function(data){
+                        //存在该电子邮箱
+                        if(data=='1'){
+                            $('#username_exist_msg').text('该用户名已被注册');
+                            $('#username_exist_msg').show();
+                            if($('#username').hasClass("correctInput")){
+                                $('#username').parent().removeClass("correctInput");
+                            }
+                            $('#username').parent().addClass("errorInput");
+                        }else{
+                            $('#username_exist_msg').hide();
+                            if($('#username').parent().hasClass("errorInput")){
+                                $('#username').parent().removeClass("errorInput");
+                            }
+                            $('#username').parent().addClass("correctInput");
+                        }
+
+                     })
+                     return ;
+                }else{
+                    $('#username_exist_msg').text('请输入正确的格式的用户名');
+                    $('#username_exist_msg').show();
+                    $('#username').parent().addClass("errorInput");
+                    return false;
+                }
+		
+	}
+        </script> 
+        <script>
+            var utag_data = {  
+              customer_id  : '',  
+              page_name  : 'CREATE PROFILE',  
+              page_type  : 'ACCOUNT' 
+            }; 
+
+            (function(a,b,c,d){
+                    a='//www.adidas.com.cn/skin/frontend/arvato/default/js/utag/utag0208.js';
+                    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+                    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+            })();
+            
+            function analyst_add_to_registrationformerror(registrationFormError){
+                console.log(registrationFormError);
+                utag.link({  
+                    event_name  : 'FORM ERROR',  
+                    form_error  : registrationFormError, 
+                    form_name  : 'REGISTER' }); 
+            }
+        </script>        	        
+<div class="footBox">
+<div class="footTop">
+<div class="wrapper cf">
+<div class="column ">
+<div class="fl footWWNav"><a href="javascript:;" title="微博" target="_blank" class="weibo">微博</a>
+<div class="footWWPop footPopWeibo">
+<div class="wrapper cf">
+<div class="fl"><img src="http://www.adidas.com.cn/skin/frontend/arvato/default/imgs/foot_weibo_pop.png" alt="weibo" /></div>
+<div class="fl footAttentionTxt"><span class="weiboLogo">关注官方微博</span> <span>阿迪达斯官方商城微博</span> <a href="#" title="加关注" target="_blank"><img src="http://www.adidas.com.cn/skin/frontend/arvato/default/imgs/btn_weibo.png" alt="" /></a></div>
+</div>
+</div>
+</div>
+<div class="fl footWWNav"><a href="javascript:;" title="微信" target="_blank" class="weixin">微信</a>
+<div class="footWWPop footPopWeixin">
+<div class="wrapper cf">
+<div class="fl"><img src="http://www.adidas.com.cn/skin/frontend/arvato/default/imgs/adidas_weixin.jpg" alt="weixin" /></div>
+<div class="fl footAttentionTxt"><span class="weixinLogo">微信扫一扫</span> <span>关注阿迪达斯官方商城微信</span> <span>微信账号：adidas-eshop</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--end wrapper min-width:950px--></div>
+<!--end black background footer-->
+<div class="footMid">
+<div class="wrapper">
+<div class="mainLine cf">
+<div class="col5">
+<h3 class="hfSubNavTit">产品</h3>
+<div class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist?product_style=215" target="_blank">鞋类</a> <a href="http://www.adidas.com.cn/productlist?product_style=214" target="_blank">服装</a> <a href="http://www.adidas.com.cn/productlist?product_style=216" target="_blank">配件</a><br /> <a href="http://www.adidas.com.cn/productlist?cat=653" target="_blank">新品上市</a> <a href="http://www.adidas.com.cn/productlist?cat=6" target="_blank">折扣专区</a> <br /> <a href="http://www.adidas.com.cn/productlist?cat=482" target="_blank">miadidas定制</a><br /> <a href="http://www.adidas.com.cn/productlist?brand_series=60" target="_blank">运动表现</a> <a href="http://www.adidas.com.cn/productlist?brand_series=115" target="_blank">Originals</a> <a href="http://www.adidas.com.cn/productlist?brand_series=116" target="_blank">adidas neo</a> <br /> <a href="http://www.adidas.com.cn/productlist?producttypecn1=1011" target="_blank">短袖上衣</a> <a href="http://www.adidas.com.cn/productlist?producttypecn1=1009" target="_blank">长袖上衣</a> <a href="http://www.adidas.com.cn/productlist/?cat=38" target="_blank">运动内衣</a> <a href="http://www.adidas.com.cn/productlist?producttypecn1=1015" target="_blank">紧身裤</a> <a href="http://www.adidas.com.cn/productlist?cat=35" target="_blank">下装</a> <a href="http://www.adidas.com.cn/productlist?producttypecn1=1007" target="_blank">茄克/外套</a></div>
+</div>
+<!--end col5-->
+<div class="col5">
+<h3 class="hfSubNavTit">运动</h3>
+<div class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist?adidascategory=955&amp;product_style=215" target="_blank">足球鞋</a> <a href="http://www.adidas.com.cn/productlist?adidascategory=943&amp;product_style=215" target="_blank">跑步鞋</a> <a href="http://www.adidas.com.cn/productlist?adidascategory=952&amp;product_style=215" target="_blank">篮球鞋</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1459" target="_blank">Bounce</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1099" target="_blank">Climachill</a> <a href="http://www.adidas.com.cn/productlist/?cat=497" target="_blank">D Rose</a> <a href="http://www.adidas.com.cn/catalogsearch/result/?q=ultraboost" target="_blank">Ultra boost</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1417" target="_blank">PUREBOOST ZG</a> <br /> <a href="http://www.adidas.com.cn/productlist?adidascategory=955" target="_blank">足球</a> <a href="http://www.adidas.com.cn/productlist?adidascategory=952" target="_blank">篮球</a> <a href="http://www.adidas.com.cn/productlist?adidascategory=943" target="_blank">跑步</a> <a href="http://www.adidas.com.cn/productlist?adidascategory=953" target="_blank">训练</a> <a href="http://www.adidas.com.cn/productlist?cat=505" target="_blank">运动型格</a> <a href="http://www.adidas.com.cn/productlist?adidascategory=954" target="_blank">网球</a> 
+
+<a href="http://www.adidas.com.cn/productlist?adidascategory=957" target="_blank" >户外</a>
+
+<!--<a href="http://www.adidas.com.cn/productlist?adidascategory=957" target="_blank" class="terrexslogonav">户外</a>--></div>
+</div>
+<!--end col5-->
+<div class="col5">
+<h3 class="hfSubNavTit">产品系列</h3>
+<div class="hfNavDetail"><a href="http://www.adidas.com.cn/productlist/?&amp;brand_series=929" target="_blank">adidas by Stella McCartney</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1141" target="_blank">adidas StellaSport </a> <a href="http://www.adidas.com.cn/productlist/?cat=565" target="_blank">Yeezy</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1070" target="_blank">NMD</a> <br /> <a href="http://www.adidas.com.cn/productlist?adidascollection=1431" target="_blank">adilette</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1112" target="_blank">Stan Smith</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1062" target="_blank">Superstar</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1140" target="_blank">ZX Flux</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1061" target="_blank">ZX Family</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1067" target="_blank">Tubular</a> <a href="http://www.adidas.com.cn/productlist?adidascollection=1235" target="_blank">Gazelle</a></div>
+</div>
+<!--end col5-->
+<div class="col5">
+<h3 class="hfSubNavTit">公司信息</h3>
+<div class="hfNavDetail mb20"><a href="http://www.adidas-group.com/en/"  target="_blank">关于我们</a>
+<a href="http://www.adidas.com.cn/CSR/home.html"  target="_blank">企业社会责任</a>
+
+
+
+
+
+
+</div>
+<h3 class="hfSubNavTit">购物指南</h3>
+<div class="hfNavDetail">
+
+<a  href="http://www.adidas.com.cn/storefinder" target="_blank">门店查询</a>
+
+<a  href="http://www.adidas.com.cn/confirmed" target="_blank">Confirmed app</a><a  href="http://www.adidas.com.cn/directory" target="_blank">客户服务</a>
+
+<a  href="http://www.adidas.com.cn/samedaydelivery" target="_blank">限时达</a>
+
+
+
+
+
+</div>
+</div>
+<!--end col5-->
+<div class="col5 last">
+<h3 class="hfSubNavTit">联系我们</h3>
+<div class="contactUsRedesign"><span class="tel">400-999-5999</span>
+<p>(仅支持中文)</p>
+<span class="mail">service@adidas.com</span>
+<p>(中英文均支持)</p>
+<span class="time">9:30-20:00</span></div>
+</div>
+<!--end col5--></div>
+<!--end mainLine-->
+<div class="hfBottom">我们接受下列付款方式：<img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2016/footer_paymethod-1.jpg" alt="" /></div>
+<!--end bottomLine--></div>
+<!--end wrapper min-width:950px--></div>
+<!--end white background footer-->
+<div class="footBot">
+<div class="wrapper cf">
+<div class="guide">
+<p class="footContry"><a href="http://www.adidas.com.cn/country-selector.html" target="_blank">中国</a></p>
+</div>
+<div class="copyRight"><a href="http://www.adidas.com.cn/transfer-goods/" title="货物所有权转移" target="_blank">货物所有权转移</a> <a href="http://www.adidas.com.cn/terms-conditions/" title="法律声明" target="_blank">法律声明</a> <a href="http://www.adidas.com.cn/privacy-policy" title="隐私条款" target="_blank">隐私条款</a> <span>苏ICP备14048805号-1</span>
+
+
+
+<!--
+<script id="jsgovicon" src="http://odr.jsdsgsxt.gov.cn:8081/mbm/app/main/electronic/js/govicon.js?siteId=bcf44f76c12e4a5588ae114fa1d6d0c9&width=21&height=30&type=1" type="text/javascript" charset="utf-8"></script>
+--><a href="http://odr.jsdsgsxt.gov.cn:8081/mbm/entweb/elec/certView.shtml?siteId=bcf44f76c12e4a5588ae114fa1d6d0c9" target="_blank"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/ebsIcon_1.png" width="23" height="30" style=" margin-right:5px;"/></a>
+<span>&copy; 2016 adidas</span>
+
+		 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32059002001401"><img src="http://www.adidas.com.cn/media/wysiwyg/adidas_IMG/2017/ebsIcon.png" style=" margin-right:5px;"/><span style="color:#939393;">苏公网安备 32059002001401号</span></a>
+		 
+
+
+</div>
+</div>
+<!--end wrapper min-width:950px--></div>
+<!--end #363738 background footer--></div>
+<div class="popup closePage">
+<div class="popupContentBox"><a href="javascript:;" title="关闭" target="_blank" class="popCloseBtn closePop">关闭</a>
+<div class="popupContent"><span class="title">离开此网页</span>
+<div class="info">您的设计将不会被保存</div>
+<div class="buttonset"><a href="#" target="_blank" class="continue btnCommon btnBlueLinear btnArrow">不保存继续</a> <a href="javascript:;" target="_blank" class="cancel btnCommon btnBlueLinear closePop">取消</a></div>
+</div>
+</div>
+<div class="closePageBg">&nbsp;</div>
+</div>
+<script type="text/javascript">// <![CDATA[
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-27771328-2', 'auto');
+  ga('send', 'pageview');
+// ]]></script>
+<script type="text/javascript">// <![CDATA[
+(function() {
+    window._CiQ11403 = window._CiQ11403 || [];
+    window._CiQ11403.push(['_cookieUseRootDomain', true]);
+    var c = document.createElement('script');
+    c.type = 'text/javascript';
+    c.async = true;
+    c.charset = 'utf-8';
+    c.src = '//collect.cn.miaozhen.com/ca/11403';
+    var h = document.getElementsByTagName('script')[0];
+    h.parentNode.insertBefore(c, h);
+})();
+// ]]></script>
+<noscript><link href="//collect.cn.miaozhen.com/refer/collect?i=11403&v=13922245942&pu=http://(NoScriptPageviews)&pt=NoScriptPageviews&ru=http://(NoScriptClients)&csh=1000&csw=1000&css=10" rel="stylesheet" type="text/css" /></noscript><!-- miaozhen 检测代码PC 结束-->
+
+<!--start popup-->
+<div class="popup country">
+    <!--start popup content-->
+    <div class="popupContentBox">
+        <a href="javascript:;" title="关闭" class="popCloseBtn closePop">关闭</a>
+        <div class="popupContent">
+            <span class="title">请选择国家/地区</span>
+            <div class="list">
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                        <h2>Americas</h2>
+                        <ul>
+                            <li><a class="link-country" href="http://www.adidas.com.ar">Argentina</a> | <a class="link-country-shop" href="http://www.adidas.com.ar/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com.br">Brasil</a><span> | </span><a class="link-country-shop" href="http://www.adidas.com.br/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.ca/en">Canada (EN)</a><span> | </span><a class="link-country-shop" href="http://www.adidas.ca/en/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.ca/fr">Canada (FR)</a><span> | </span><a class="link-country-shop" href="http://www.adidas.ca/fr/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.cl">Chile</a><span> | </span><a class="link-country-shop" href="http://www.adidas.cl/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.co">Colombia</a><span> | </span><a class="link-country-shop" href="http://www.adidas.co/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com/latin-america/">Latinoamérica</a></li>
+                            <li><a class="link-country" href="http://www.adidas.mx">México</a><span> | </span><a class="link-country-shop" href="http://www.adidas.mx/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.pe">Perú</a><span> | </span><a class="link-country-shop" href="http://www.adidas.pe/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com/us">United States</a></li>
+                        </ul>
+                        </td>
+                        <td>
+                        <h2>Asia Pacific</h2>
+                        <ul>
+                            <li><a class="link-country" href="http://www.adidas.com.au">Australia</a>&nbsp;<span> | </span><a class="link-country-shop" href="http://www.adidas.com.au/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com/cn">China <img alt="" width="24" height="14" src="//hp.static.adidas.com/brand/platform//img/countrycode_china.gif"></a><span> | </span><a class="link-country-shop" href="http://shop.adidas.cn">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com.hk">Hong Kong <img alt="" width="24" height="14" src="//hp.static.adidas.com/brand/platform//img/countrycode_hongkong.gif"></a></li>
+                            <li><a class="link-country" href="http://www.adidas.co.in">India</a></li>
+                            <li><a class="link-country" href="http://www.adidas.co.id">Indonesia</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com/jp">Japan <img alt="" width="24" height="14" src="//hp.static.adidas.com/brand/platform//img/countrycode_japan.gif"></a><span> | </span><a class="link-country-shop" href="http://shop.adidas.jp">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.co.kr">Korea <img alt="" width="24" height="14" src="//hp.static.adidas.com/brand/platform//img/countrycode_korea.gif"></a><span> | </span><a class="link-country-shop" href="http://shop.adidas.co.kr">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com.my">Malaysia</a><span> | </span><a class="link-country-shop" href="http://shop.adidas.com.my/">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.co.nz">New Zealand</a> | <a class="link-country-shop" href="http://www.adidas.co.nz/shop">SHOP</a></li>
+                            <li><a href="http://www.adidas.com.ph" class="link-country">Phillipines</a><span> | </span><a class="link-country-shop" href="http://shop.adidas.co.ph/">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com.sg">Singapore</a><span> | </span><a class="link-country-shop" href="http://shop.adidas.com.sg/">SHOP</a></li>
+                            <!--<li><a class="link-country" href="http://www.adidas.com.tw">Taiwan <img alt="" width="24" height="14" src="//hp.static.adidas.com/brand/platform//img/countrycode_taiwan.gif" /></a></li>-->
+                            <li><a class="link-country" href="http://www.adidas.co.th">Thailand</a>&nbsp;| <a class="link-country-shop" href="http://shop.adidas.co.th/">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com.vn">Vietnam</a></li>
+                        </ul>
+                        </td>
+                        <td>
+                        <h2>Europe</h2>
+                        <ul style="float: left">
+                            <li><a class="link-country" href="http://www.adidas.com/baltics/">Baltics</a></li>
+                            <li><a class="link-country" href="http://www.adidas.be">Belgium</a><span> | </span><a class="link-country-shop" href="http://www.adidas.be/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.cz">Czech Republic</a><span> | </span><a class="link-country-shop" href="http://www.adidas.cz/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.dk">Danmark</a><span> | </span><a class="link-country-shop" href="http://www.adidas.dk/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.de">Deutschland</a><span> | </span><a class="link-country-shop" href="http://www.adidas.de/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.gr">Ελλάδα</a></li>
+                            <li><a class="link-country" href="http://www.adidas.es">Espana</a><span> | </span><a class="link-country-shop" href="http://www.adidas.es/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.fr">France</a><span> | </span><a class="link-country-shop" href="http://www.adidas.fr/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.it">Italia</a><span> | </span><a class="link-country-shop" href="http://www.adidas.it/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.ie">Ireland</a><span> | </span><a class="link-country-shop" href="http://www.adidas.ie/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.hu">Magyarország</a></li>
+                            <li><a class="link-country" href="http://www.adidas.nl">Nederland</a><span> | </span><a class="link-country-shop" href="http://www.adidas.nl/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.no">Norge</a></li>
+                        </ul>
+                        </td>
+                        <td>
+                        <h2>&nbsp;</h2>
+                        <ul style="float: left">
+                            <li><a class="link-country" href="http://www.adidas.at">Österreich</a><span> | </span><a class="link-country-shop" href="http://www.adidas.at/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.pl">Polska</a><span> | </span><a class="link-country-shop" href="http://www.adidas.pl/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.pt">Portugal</a></li>
+                            <li><a class="link-country" href="http://www.adidas.ru">Poccия</a><span> | </span><a class="link-country-shop" href="http://www.adidas.ru/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.ch">Schweiz</a></li>
+                            <li><a class="link-country" href="http://www.adidas.sk">Slovakia</a><span> | </span><a class="link-country-shop" href="http://www.adidas.sk/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.fi">Suomi</a><span> | </span><a class="link-country-shop" href="http://www.adidas.fi/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.se">Sverige</a><span> | </span><a class="link-country-shop" href="http://www.adidas.se/shop">SHOP</a></li>
+                            <li><a class="link-country" href="http://www.adidas.com.tr">Türkiye</a></li>
+                            <li><a class="link-country" href="http://www.adidas.co.uk">United Kingdom</a><span> | </span><a class="link-country-shop" href="http://www.adidas.co.uk/shop">SHOP</a></li>
+                        </ul>
+                        </td>
+                        <td class="last">
+                        <h2>Middle East</h2>
+                        <ul>
+                            <li><a class="link-country" href="http://www.adidas.com/middle-east/">Middle East</a></li>
+                        </ul>
+                        <div class="country-divider">&nbsp;</div>
+                        <h2>Africa</h2>
+                        <ul>
+                            <li><a class="link-country" href="http://www.adidas.co.za/">South Africa</a></li>
+                        </ul>
+                        <div class="country-divider">&nbsp;</div>
+                        <h2>Other</h2>
+                        <ul>
+                            <li><a class="link-country" href="http://www.adidas.com/com/">adidas.com</a></li>
+                        </ul>
+                        </td>
+                    </tr>
+             </table>
+            </div>
+        </div>
+    </div>
+    <!--end popup content-->
+    <!--start popup background-->
+    <div class="popBg"></div>
+    <!--end popup background-->
+</div>
+<!--end popup-->
+<!--start closePage popup-->
+<div class="popup closePage">
+    <div class="popupContentBox">
+        <a href="javascript:;" title="关闭" class="popCloseBtn closePop">关闭</a>
+        <div class="popupContent" tabindex="-1">
+            <span class="title">离开此网页</span>
+            <div class="info">您的设计将不会被保存</div>
+            <div class="buttonset">
+                <a href="#" class="continue btnCommon btnBlueLinear btnArrow">不保存继续</a>
+                <a href="javascript:;" class="cancel btnCommon btnBlueLinear closePop">取消</a>
+            </div>
+        </div>
+    </div>
+    <div class="closePageBg"></div>
+</div>
+            	    </body>
+</html>
